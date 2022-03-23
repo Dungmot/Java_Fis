@@ -19,7 +19,7 @@ public class ChatServer {
 		// doc file
 		try {
 			FileReader fr = new FileReader(
-					"C:\\Users\\THUAN\\eclipse-workspace\\FIS_Java\\topic_01\\Practice_01\\src\\fis\\topic03\\practice02\\CSKH.txt");
+					"CSKH.txt");
 			BufferedReader br = new BufferedReader(fr);
 			String s = "";
 			while ((s = br.readLine()) != null) {
@@ -37,22 +37,17 @@ public class ChatServer {
 			System.out.println("Server da khoi tao");
 			while (true) {
 				Socket socket = myServer.accept();
-//				dos.write
-//				 System.out.println("Xin chào Bạn! Mùa hè đến rồi bạn đã chuẩn bị gì cho 1 chuyến đi du lịch chưa?");
-//	                System.out.println("1. Tiếp tục");
-//	                System.out.println("2. Ket thuc");
-//	                System.out.print("Moi ban nhap lựa chọn (1 hay 2): ");
+				dos.writeUTF("Client da ket noi");
 				//List client vừa kết nối
 				//thread chờ tin nhắc từ client khác
-
-				System.out.println("Client da ket noi");
-				//
 				DataInputStream dis = new DataInputStream(socket.getInputStream());
 				DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
 				// xuly
 				Scanner sc = new Scanner(System.in);
 				int k = 0;
 				String message = "";
+				message = "Xin chào Bạn! Mùa hè đến rồi bạn đã chuẩn bị gì cho 1 chuyến đi du lịch chưa? \n1. Tiếp tục\n2. Ket thuc\nMoi ban nhap lựa chọn (1 hay 2): ";
+				dos.writeUTF(message);
 				k = Integer.parseInt(dis.readUTF());
 				if (k == 1) {
 					message = "";
