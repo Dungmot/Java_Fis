@@ -18,16 +18,9 @@ public class ChatClient {
             Scanner sc = new Scanner(System.in);
             int k = 0;
             String message = "";
-            
-//                System.out.println("Xin chào Bạn! Mùa hè đến rồi bạn đã chuẩn bị gì cho 1 chuyến đi du lịch chưa?");
-//                System.out.println("1. Tiếp tục");
-//                System.out.println("2. Ket thuc");
-//                System.out.print("Moi ban nhap lựa chọn (1 hay 2): ");
-//                k = Integer.parseInt(sc.nextLine());
-//                dos.writeUTF(String.valueOf(k));
+            k = Integer.parseInt(sc.nextLine());
+            dos.writeUTF(String.valueOf(k));
 //            	dis.readUTF(message); nhận ->thread{
-            	//
-//                while (k != 2) {
                 	if (k==1) {
                 	String messenger="";
                     System.out.println("\nNhap tin: ");
