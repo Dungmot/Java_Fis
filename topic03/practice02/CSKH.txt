@@ -1,0 +1,3 @@
+hi chào cho tôi hỏi$Xin chào Bạn! Mùa hè đến rồi bạn đã chuẩn bị gì cho 1 chuyến đi du lịch chưa?$1. Rồi nha bạn ơi		2. Chưa có, hehe		3. Mình muốn đặt phòng
+Rồi nha bạn ơi$Thật tuyệt vời! Chúc bạn có một chuyến đi đầy thú vị. Traveling xin gửi bản tham khảo thêm một vài địa điểm nha$A. Du lịch thám hiểm	B. Du lịch nghỉ dưỡng
+Du lịch thám hiểm Du lịch nghỉ dưỡng$Tuyệt vời! Bạn có muốn Travelling thiết kế cho bạn một chuyến đi phù hợp không?$A.Có
