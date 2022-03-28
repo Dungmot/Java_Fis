@@ -1,25 +1,39 @@
 package com.fis.spring.entity;
 
-import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.stereotype.Component;
 
+import javax.persistence.*;
 import java.util.Date;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-@Component
+@Data
+@Entity
 public class Transaction {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY )
     private Long transactionId;
+
     private Date transactionDate;
-    private Number fromAccount;
-    private Number toAccount;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fromAccount", referencedColumnName = "accountId")
+    private Account fromAccount;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "toAccount", referencedColumnName = "accountId")
+    private Account toAccount;
+
     private Double amount;
+
     private Integer status;
+
     private String content;
+
     private String errorReason;
+
 }
