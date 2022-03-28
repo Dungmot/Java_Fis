@@ -1,19 +1,16 @@
 package com.fis.spring.service;
 import com.fis.spring.entity.Account;
-import com.fis.spring.model.dto.AccountDTO;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
 public interface AccountService {
     //Khai báo method lấy ra list Account kiểu trả về là ListAccount
-    public List<AccountDTO> getListAccount();
-    public AccountDTO getAccountDto(Long id);
-    public AccountDTO getAccountById(Long id);
     Account createAccount(Account account);
     Account updateAccount(Account account);
-    Account deleteAccount(Long accontId);
-
+    String deleteAccount(Long accontId);
+    Account findAccountById(Long accountId);
+    List<Account> findAllAccount();
 }
 
 
