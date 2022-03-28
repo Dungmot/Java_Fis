@@ -1,48 +1,45 @@
 package com.fis.spring.controller;
 
 import com.fis.spring.entity.Account;
-import com.fis.spring.model.dto.AccountDTO;
 import com.fis.spring.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/account")
 public class AccountController {
 
     @Autowired
-    private AccountService accountService;
+    AccountService accountService;
 
-    @GetMapping("")
-    public ResponseEntity<?> getListAccount(){
-        //gọi sang AccountService lấy ra ListAccount rồi trả về cho Client
-        List<AccountDTO> accounts = accountService.getListAccount();
-        return ResponseEntity.ok(accounts);
-    }
-    @GetMapping("/{id}")
-    public ResponseEntity<?> getAccountById(@PathVariable Long id){
-        //gọi sang AccountService lấy ra ListAccount rồi trả về cho Client
-        AccountDTO result = accountService.getAccountById(id);
+    @GetMapping("/findAccountById/{accountId}")
+    public ResponseEntity<?> findAccountById(@PathVariable Long accountId){
+        //gọi sang Account lấy ra Account rồi trả về cho Client
+        Account result = accountService.findAccountById(accountId);
         return ResponseEntity.ok(result);
     }
-    @PostMapping("")
+    @PostMapping("/createAccount")
     @ResponseBody
     public ResponseEntity<?> createAccount(@RequestBody Account account){
         return ResponseEntity.ok(accountService.createAccount(account));
     }
-    @GetMapping("/{id}")
+    @GetMapping("/updateAccount")
     @ResponseBody
     public ResponseEntity<?> updateAccount(@RequestBody Account account){
         return ResponseEntity.ok(accountService.updateAccount(account));
     }
-    @GetMapping("/{id}")
+    @GetMapping("/deleteAccount/{accountId}")
     @ResponseBody
     public ResponseEntity<?> deleteAccount(@PathVariable Long accountId){
         accountService.deleteAccount(accountId);
         return ResponseEntity.ok("Done!");
+    }
+    @GetMapping("/findAllAccount")
+    @ResponseBody
+    public ResponseEntity<?> findAllAccount(){
+        return ResponseEntity.ok(accountService.findAllAccount());
     }
 }
 
